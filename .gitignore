@@ -1,0 +1,14 @@
+.idea/
+cmake-build-debug
+cmake-build-debug-coverage/
+CMakeLists.txt
+*.sh
+*.o
+tmp.txt
+*.out
+.DS_Store
+*.app
+build/
+doc/
+*.test
+kopecp14
