@@ -1,0 +1,10 @@
+[[1,2,3],[4,5,6]] A =
+A TRA B =
+load examples/nonexistantFile.sad
+yes
+load examples/fileSaved.matxt
+yes
+status
+[[1,2,3,4,5]] F =
+exit
+yes

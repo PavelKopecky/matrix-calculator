@@ -1,0 +1,20 @@
+help
+[[1,2,3],[4,5,6],[11.2,4,5]] A =
+A GEM
+A DET
+A INV A * A + B =
+B
+B A - GEM C =
+status
+A B MERGE [[3,3],[0,2]] crop D =
+D
+D rank
+D TRA E =
+D tra rank
+rm E
+[[1,0,0,0,0],[0,0,0,-0.3,0],[0,0,0,0,0],[0, -11.2, 0 ,0,1 ]] E =
+A A + A A + * [[1,2.1,1],[-1.2,3,4],[0,11,2]] A * + A A + GEM TRA +
+exit
+no
+save examples/fileSaved2.matxt
+exit

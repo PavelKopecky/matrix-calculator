@@ -1,0 +1,9 @@
+[[1,2,3],[4 , 5  , -0.13 ]] A =
+A [[1,  0 ,  -0.13]] MERGE A =
+A gEM B =
+B [[2,2],[1,1]] CROP  INV GEM TRA C =
+A B * TRA GEM A merge D =
+B D * TRA A * GEM B * E =
+status
+exit
+yes

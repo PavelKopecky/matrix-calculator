@@ -1,0 +1,3 @@
+Čestně prohlašuji, že jsem tuto semestrální práci vypracoval samostatně a dle mých nejlepších schopností.
+V případě využití složitějších konceptů přikládám odkazy na něm v kódu samotném. Doxyfile jsem s dovolením
+Davida Bernahuera přebral z jeho GitLabu a upravil dle mé potřeby. Odkaz na jeho Doxyfile je v mém Doxyfilu.

@@ -1,0 +1,69 @@
+!--------------------------------------------------------------------------------------------!
+
+Summary of basic commands:
+
+The app expects entering expressions using the Polish Reverse Notation.
+
+1) Defining a matrix:
+
+    [[2,1],[1,2]] A =
+    A TRA INV B =
+    A B * C =
+
+    Matrices can only be defined with letters.
+
+2) Operations:
+
+    A
+        //prints matrix A
+
+    A [[1,2],[3,4]] MUL
+    A B *
+        // multiplies matrices A and B
+        // column count of matrix A must equal row count of matrix B
+
+    A [[3,4],[4,5]] +
+    A B +
+        // adds matrices A and B, matrices need to have the same dimensions
+
+    A [[3,4],[4,5]] SUB
+    A B -
+        // subtracts matrix B from A, matrices need to have the same dimensions
+
+    A GEM
+        // converts matrix A into a matrix in the upper triangular form using the gaussian elimination method
+
+    A INV
+        // finds an inverse matrix to matrix A, if it exists - for square matrices only
+
+    A TRA
+        // transposes matrix A
+
+    A B MERGE
+        // merges two matrices, primarily merged B to the left of A, secondarily to the bottom
+        // matrices have to have the same number of rows or columns
+
+    A [[2,2],[1,0]] CROP
+        // crops matrix A with dimensions in the second 2x2 matrix
+        // [2,2] final dimensions, [1,0] offset
+
+    DET A
+        // finds the determinant of matrix A - for square matrices only
+
+    Example of a more complex operation:
+    $[[3,4],[-1,2]] A =
+    $[[1,2],[3,4]] [[1,0],[0,0]] MERGE TRA GEM A * TRA C =
+
+3) File system:
+
+    LOAD myFile.mat
+    SAVE myFile.mat
+
+4) Other commands:
+
+    help - displays this message
+    status - prints out all matrices saved in the calculator
+    exit - exits the application
+    rm A - removes matrix A from memory
+
+!--------------------------------------------------------------------------------------------!
