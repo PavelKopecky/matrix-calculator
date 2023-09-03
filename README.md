@@ -1,62 +1,12 @@
-= Maticová kalkulačka
+# Maticová kalkulačka
 Autor: Pavel Kopecký, kopecp14
 
-== Zadání
-
-Vaším úkolem je vytvořit kalkulačku pro práci s maticemi. Jednotlivé matice a výsledky operací je možné ukládat do proměnných a tyto proměnné následně využívat v dalších výpočtech.
-
-=== Kalkulačka musí implementovat následující funkcionality:
-
-Práce s maticemi libovolné velikosti (především načtení a vypsání proměnných).
-
-Základní operace: sčítání, odčítání, násobení a transpozice.
-
-Sloučení matic (př. matice 3x3 sloučeno s 3x3 ⇒ matice 6x3) a oříznutí (př. matice 6x6 oříznuta na 3x3 v offsetu 0x0 ⇒ levá polovina matice 3x3).
-
-Výpočet inverzní matice pro čtvercové matice.
-
-Funkce pro výpočet determinantu, určení hodnosti a provedení Gaussovy eliminační metody.
-
-Stav kalkulačky (tedy její proměnné) je možné uložit do souboru v textově čitelné formě. Stejně tak je potom možné tento stav ze souboru obnovit.
-
-Uložení v rámci proměnných (a souboru) musí být paměťově efektivní. Při ukládání proměnné do paměti se musí určit typ dané matice. Rozlišujte alespoň řídké matice (obsahují především nulové hodnoty, př. jednotková matice) a husté matice (opak řídkých, př. hodnota prvku v matici je rovna jeho součtu jeho indexů) a podle toho určete efektivní reprezentaci.
-
-=== Dále aplikace musí zpracovávat výrazy dle jednoho z následujících principů:
-
-Základní operace (alespoň sčítání, odčítání a násobení) musí jít vnořovat pomocí závorek (př. (Z = [[1, 0], [0, 1]] + X) * Y). Funkce a složitější operace mohou fungovat formou individuálních příkazů bez dalšího skládání (př. A = GAUSS X).
-Pro zapisování výrazů využijte prefixový (nebo postfixový) zápis, mají tu výhodu, že nevyžadují závorky a snáze se zpracovávají. V tomto případě však veškeré operace a funkce musí jít zapsat v jednom výrazu (př. A = GAUSS MUL Y ADD [[1, 0], [0, 1]] X).
-
-=== Ukázka běhu programu: (nezávazný příklad)
-
-IMPORT memory.matx
-X = DET [[1, 7], [3, 2]]
-SCAN Y
-// input from user …
-Z = X * (Y + [[1, 0], [0, 1]])
-A = GEM Z
-PRINT A
-EXPORT memory.matx
-
-=== Kde lze využít polymorfismus? (doporučené)
-
-reprezentace matice: jednotková, řídká, hustá, …
-
-operace: sčítání, odčítání, násobení, …
-
-formáty exportu: textový, binární, …
-
-uživatelské rozhraní: konzole, ncurses, SDL, OpenGL (různé varianty), …
-
-=== Další informace:
-Pro parsování výrazu se může hodit Shunting-Yard algoritmus (http://en.wikipedia.org/wiki/Shunting-yard_algorithm).
-Pro uložení do souboru můžete využít i binární formát, v takovém případě dejte uživateli na výběr.
-
-== Specifikace
+## Specifikace
 
 Maticová kalkulačka je implementována jako *konzolová aplikace*. Uživatel může vytvářet nové matice, mazat
 provádět nad maticemi různé operace a
 ukládat aktuální stav kalkulačky do souboru a později i stav kalkulačky opět nahrát.
-Vstup z konzole bude vyžadován v postfix formátu (https://en.wikipedia.org/wiki/Reverse_Polish_notation[Reverse Polish Notation^]), konec vstupu bude potvrzen
+Vstup z konzole bude vyžadován v postfix formátu [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation), konec vstupu bude potvrzen
 novým řádkem -- `\n`. Zpracování výrazu bude probíhat nad polymorfním stromem AST.
 
 Mezi podporované operace patří: sčítání, odčítání, násobení, transpozice, sloučení, oříznutí, nalezení inverze, výpočet determinantu,
@@ -65,7 +15,7 @@ určení hodnosti a GEM, pokud jsou tyto operace definovány.
 Uživatel může zároveň vypsat všechny aktuálně uložené matice, vypsat konkrétní matici nebo zobrazit stručný manuál.
 Příkazy (`load`, `exit`, `help`, ...) budou volány běžným způsobem (název příkazu + případný parametr), výpočty jako takové budou zadávány v postfix formátu.
 
-=== Příklad běhu:
+### Příklad běhu:
 ```
  >...
  $status
@@ -95,7 +45,7 @@ Příkazy (`load`, `exit`, `help`, ...) budou volány běžným způsobem (náze
  > Closing application.
 ```
 
-== Polymorfismus
+## Polymorfismus
 
 Polymorfismus bude implementován na úrovni abstraktní třídy CMatrix. Tato třída bude mít tři potomky - CDiagonalMatrix, CSparseMatrix a CDenseMatrix.
 Implementace výpisu matice do konzole, či způsob uložení do souboru se bude lišit podle třídy.
